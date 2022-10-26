@@ -5,8 +5,8 @@ Desarrollador: Jorge Quidel
 <h2>Análisis Clases</h2>
 
 <ul>
-<li>Caso 1: Jugador, Partido, Goles</li>
-<li>Caso 2: EmpresaNaviera, Buque, Partes, Astillero </li>
+<li>Caso 1: JugadorFutbol, Partido, Goles</li>
+<li>Caso 2: EmpresaNaviera, Buque, PartesBuque, Astillero </li>
 <li>Caso 3: Pedido, Mesero</li>
 <li>Caso 4: Jugador, Equipo</li>
 <li>Caso 5: Evento, OtroEvento</li>
@@ -17,35 +17,34 @@ Desarrollador: Jorge Quidel
 <h3>Caso 1</h3>
 
 <ul>
-<li>Jugador (Asociación/Bidireccional/Varios a Varios) Partido</li>
-<li>Partido (Agregación/Unidireccional/Uno es a Varios) Gol</li>
-<li>Jugador (Agregación/Unidireccional/Uno es a Varios) Gol</li>
+<li>JugadorFutbol (Asociación/Bidireccional/*jugadores, *partidos) Partido</li>
+<li>Partido (Agregación/Unidireccional/*goles) Gol</li>
+<li>JugadorFutbol (Agregación/Unidireccional/*goles) Gol</li>
 </ul>
 
 <h3>Caso 2</h3>
 
 <ul>
-<li>EmpresaNaviera (Agregación/Unidireccional/Uno es a Varios) Buque</li>
-<li>Buque (Composición/Unidireccional/Uno es a Varios) Partes</li>
-<li>Astillero (Agregación/Unidireccional/Uno es a Varios) Partes</li>
+<li>EmpresaNaviera (Agregación/Unidireccional/*buques) Buque</li>
+<li>Buque (Composición/Unidireccional/1..*partes) PartesBuque</li>
+<li>Astillero (Agregación/Unidireccional/*partes) PartesBuque</li>
 </ul>
 
 <h3>Caso 3</h3>
 
 <ul>
-<li>Pedido (Asociación/Unidireccional/Uno es a Uno) Mesero</li>
-<li>Mesero (Agregación/Unidireccional/Uno es a Varios) Pedido</li>
+<li>Pedido (Asociación/Bidireccional/*pedidos, 1mesero) Mesero</li>
 </ul>
 
 <h3>Caso 4</h3>
 
 <ul>
-<li>Equipo (Asociación/Unidireccional/Uno es a Uno o Varios) Jugador</li>
-<li>Juagdor (Agregación/Unidireccional/Uno es a Uno) Equipo</li>
+<li>Equipo (Asociación/Bidireccional/1equipo, 1..*jugadores) Jugador</li>
+<li>Jugador (Asociación/Bidireccional/1equipo, 1capitan) Equipo</li>
 </ul>
 
 <h3>Caso 5</h3>
 
 <ul>
-<li>Evento (Asociación/Unidireccional/Uno es a Cero o Varios) OtroEvento</li>
+<li>Evento (Asociación/Unidireccional/0..1evento) OtroEvento</li>
 </ul>
